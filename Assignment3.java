@@ -53,23 +53,23 @@ public class Assignment3 {
 		jsAlert.accept();
 
 		
-//		//Window Switching
-//		driver.get("https://www.naukri.com/");
-//		String pHandle = driver.getWindowHandle();
-//		System.out.println(pHandle);
-//		Thread.sleep(2000);
-//		driver.findElement(By.xpath("//img[contains(@src,'https://company.naukri.com/homepage21/cognizant-hs-tp-21sep2018.gif')]")).click();
-//		
-//		Set<String> handles = driver.getWindowHandles();
-//		System.out.println(handles);
-//
-//		for (String h : handles) {
-//			System.out.println("The values of current handle is" + h);
-//			driver.switchTo().window(h);
-//			System.out.println(driver.getTitle());
-//		}
-//		driver.switchTo().window(pHandle);
-//		Thread.sleep(2000);
+		//Window Switching
+		driver.get("https://www.naukri.com/");
+		String pHandle = driver.getWindowHandle();
+		System.out.println(pHandle);
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//img[contains(@src,'https://company.naukri.com/homepage21/cognizant-hs-tp-21sep2018.gif')]")).click();
+		
+		Set<String> handles = driver.getWindowHandles();
+		System.out.println(handles);
+
+		for (String h : handles) {
+			System.out.println("The values of current handle is" + h);
+			driver.switchTo().window(h);
+			System.out.println(driver.getTitle());
+		}
+		driver.switchTo().window(pHandle);
+		Thread.sleep(2000);
 
 		// ##########################################################
 		// Open URL
