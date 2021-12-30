@@ -38,7 +38,7 @@ public class Assignment2 {
 		driver.findElement(By.className("search-query")).sendKeys("Online Banking:");
 
 		// Login to the application
-		//driver.findElement(By.id("signin_button")).click();
+		
 		driver.findElement(By.tagName("button")).click();
 		driver.findElement(By.name("user_login")).sendKeys("username");
 		driver.findElement(By.cssSelector("i.icon-question-sign")).click();
@@ -64,8 +64,10 @@ public class Assignment2 {
 		driver.findElement(By.xpath("//input[@id='np_new_payee_account']")).sendKeys("50");
 		driver.findElement(By.xpath("//input[@id='np_new_payee_details']")).sendKeys("Elcecticity Bills");
 		driver.findElement(By.cssSelector("input#add_new_payee")).click();
-		
-		driver.findElement(By.linkText("Zero Bank")).click();
+	
+		//Logout
+		driver.findElement(By.xpath("//body/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]")).click();
+		driver.findElement(By.xpath("//a[@id='logout_link']")).click();
 		
 		
 		//Feedback Form
