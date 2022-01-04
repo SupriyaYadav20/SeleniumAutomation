@@ -1,10 +1,5 @@
 package Assignment;
 
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-
 import static org.testng.Assert.assertEquals;
 
 import java.util.concurrent.TimeUnit;
@@ -17,12 +12,22 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.*;
 
 public class Assignment_4 {
 
 	public WebDriver driver;
+	
+	@BeforeTest
+	public void setUp() {
+		// Set system path for browser driver
+		System.setProperty("webdriver.chrome.driver", "C:\\SeleniumBrowserDrivers\\chromedriver.exe");
+
+		// Open Browser
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		
+	}
 
 	// ****************Purchase foreign currency cash **********************
 	@Test(groups= {"Smoke"})
@@ -209,15 +214,7 @@ public class Assignment_4 {
 		System.out.println("After class");
 	}
 
-	@BeforeTest
-	public void beforeTest() {
-
-// Set system path for browser driver
-		System.setProperty("webdriver.chrome.driver", "C:\\SeleniumBrowserDrivers\\chromedriver.exe");
-		driver = new ChromeDriver();
-
-	}
-
+	
 	@AfterTest
 	public void afterTest() {
 // Close Browser
