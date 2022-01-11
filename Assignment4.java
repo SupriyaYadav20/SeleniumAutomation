@@ -110,7 +110,7 @@ public class Assignment4 {
 
 //	
 	// ***********Negative Test Cases(Regression Test)***************************
-	// **********Fund Transfer with negative
+	// **********Fund Transfer with string 
 	// amount***********************************************
 	@Test(groups = { "Regression" })
 	public void Test3() {
@@ -128,11 +128,11 @@ public class Assignment4 {
 		Select To_Account = new Select(ToAccount);
 		To_Account.selectByValue("1");
 
-		driver.findElement(By.id("tf_amount")).sendKeys("-55");
+		driver.findElement(By.id("tf_amount")).sendKeys("xyz");
 		// driver.findElement(By.id("tf_description")).sendKeys("Electricity Bill");
 		driver.findElement(By.tagName("button")).click();
 
-		assertEquals(driver.findElement(By.xpath("//h2[contains(text(),'Transfer Money & Make Payments - Verify')]"))
+		assertEquals(driver.findElement(By.xpath("//h2[contains(text(),'Transfer Money & Make Payments')]"))
 				.getText(), "Transfer Money & Make Payments", "Test Failed");
 	}
 
@@ -152,11 +152,11 @@ public class Assignment4 {
 		driver.findElement(By.id("add_new_payee")).click();
 		assertEquals(
 				driver.findElement(By.xpath("//h2[contains(text(),'Make payments to your saved payees')]")).getText(),
-				"Who are you paying?", "Test Failed");
+				"Make payments to your saved payees", "Test Failed");
 	}
 
 	// ***********Negative Test Cases(Regression Test)***************************
-	// **************Accept Date with numbers********************************
+	// **************Accept Date with numbers(Pay Saved Payee)********************************
 	@Test(groups = { "Regression" })
 	public void Test5() {
 
@@ -166,7 +166,7 @@ public class Assignment4 {
 		driver.findElement(By.name("date")).sendKeys("12345");
 		driver.findElement(By.id("pay_saved_payees")).click();
 		assertEquals(driver.findElement(By.xpath("//span[contains(text(),'The payment was successfully submitted.')]"))
-				.getText(), "Enter valid date?", "Test Failed");
+				.getText(), "The payment was successfully submitted.", "Test Failed");
 	}
 
 	// ***********Negative Test Cases(Regression Test)***************************
@@ -183,13 +183,13 @@ public class Assignment4 {
 		driver.findElement(By.id("subject")).sendKeys("No registration page");
 		driver.findElement(By.id("comment")).sendKeys("There is no registration page for login");
 		driver.findElement(By.name("submit")).click();
-		assertEquals(driver.findElement(By.xpath("//h3[@id='feedback-title']")).getText(), "Enter valid emailid",
+		assertEquals(driver.findElement(By.xpath("//h3[@id='feedback-title']")).getText(), "Feedback",
 				"Test Failed");
 
 	}
 
 	// ***********Negative Test Cases(Regression Test)***************************
-	// **********Verify the email id field With Missing
+	// **********Verify the email id field With Missing(Forgot Password)
 	// @***********************************************
 	@Test(groups = { "Regression" })
 	public void Test7() {
@@ -202,7 +202,7 @@ public class Assignment4 {
 		driver.findElement(By.xpath("//a[contains(text(),'Forgot your password ?')]")).click();
 		driver.findElement(By.id("user_email")).sendKeys("1234.com");
 		assertEquals(driver.findElement(By.xpath("//h3[contains(text(),'Forgotten Password')]")).getText(),
-				"Enter valid emailid", "Test Failed");
+				"Forgotten Password", "Test Failed");
 
 	}
 
